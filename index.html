@@ -9,12 +9,12 @@
     <link href="./output.css" rel="stylesheet">
 </head>
 <body style = "background-image: url('WebPage-background-4.jpg'); " >
-    <header  class = "bg-black flex flex-row flex-nowrap justify-start items-end">
+    <header  class = "bg-black flex flex-row flex-nowrap justify-start items-end border-b-red-900 border-b-4">
         <img src = "Hunt_Logo_Textured_White_shrunk.jpg" class = "w-0 md:w-auto"/>
         <h1 class = "text-white m-auto justify-center text-center font-bold text-4xl p-12 font-Crimson-text md:justify-normal md:m-0 "> HUNT - Match Tracker</h1>
     </header>
     <section>
-        <form class = "m-auto w-11/12 md:w-1/2 md:m-auto" >
+        <form class = "m-auto w-11/12 md:w-1/2 md:m-auto " >
             <fieldset class = "border-red-900 border-solid border-2 bg-black bg-opacity-60 p-3" >
             <legend class =" p-1 font-Crimson-text text-xl text-white font-extrabold ml-2">Weapon Loadout</legend>
             
@@ -111,16 +111,16 @@
         </fieldset>
         <fieldset class = "border-red-900 border-solid border-2 bg-black bg-opacity-60 p-3">
             <legend class =" p-1 font-Crimson-text text-xl text-white font-extrabold ml-2">Tools</legend>
-            <div><!--This is the row of all tools-->
-                <p class = "font-Crimson-text text-lg text-white font-bold text-center">Select up to 4 tools that you have equipped</p>
-                <div id = "toolContainer" class =" flex flex-row flex-wrap gap-3">
 
-                </div>
+            <p class = "font-Crimson-text text-lg text-white font-bold text-center pb-5 ">Select up to 4 tools that you have equipped</p>
+            <div id = "toolContainer" class =" flex flex-row flex-wrap gap-3">
+
+
             </div>
         </fieldset>
         <fieldset class = "border-red-900 border-solid border-2 bg-black bg-opacity-60 p-3">
             <legend class =" p-1 font-Crimson-text text-xl text-white font-extrabold ml-2">Consumables</legend>
-            <p class = "font-Crimson-text text-lg text-white font-bold text-center">Select your equipped consumables from the drop down boxes below:</p>
+            <p class = "font-Crimson-text text-lg text-white font-bold text-center pb-5">Select your equipped consumables from the drop down boxes below:</p>
             <div class = "flex flex-row flex-wrap justify-center gap-5"><!-- this contains the rows of flex boxes which each hold a label and their select input beneath it-->
                 <div class = "flex flex-col flex-nowrap justify-center items-center ">
                     <label for="consumable1" class = "font-Crimson-text text-white " >Consumable 1</label>
@@ -141,8 +141,9 @@
 
             </div>
         </fieldset>
-        <button type = "submit" class = "justify-center">Submit loadout</button>
+        <button type = "submit" class = "self-center m-auto text-white border-white border-2" tex>Submit loadout</button>
         </form>
+        
     </section>
     <script type="text/javascript" src = "index.js"></script>
 </body>

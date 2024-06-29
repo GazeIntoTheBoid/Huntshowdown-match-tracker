@@ -139,6 +139,8 @@ function updateOptions(slot,slotOptions){
         let newOption = document.createElement("option");
         newOption.value = slotOptions[i];
         newOption.text = slotOptions[i];
+        newOption.className = "font-Crimson-text text-sm"
+        slotSelect.className = "font-Crimson-text text-red text-sm"
         slotSelect.appendChild(newOption)
         console.log("appending: ", newOption.innerText, "to: ", slotSelect)
     }
@@ -151,6 +153,8 @@ function populateConsumableLists(){
                 let newOption = document.createElement("option")
                 newOption.value = equipmentData["consumables"][j]["ConsumableName"];
                 newOption.text = equipmentData["consumables"][j]["ConsumableName"];
+                newOption.className = "font-Crimson-text text-red text-sm"
+                consumableSelectElements[i].className = "font-Crimson-text text-sm"
                 consumableSelectElements[i].appendChild(newOption)
             }
         }
