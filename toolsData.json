@@ -1,0 +1,107 @@
+[
+  {
+    "ToolName": "Alert Trip Mine",
+    "Category": "Deception",
+    "Cost": 30
+  },
+  {
+    "ToolName": "Blank Fire Decoys",
+    "Category": "Deception",
+    "Cost": 45
+  },
+  {
+    "ToolName": "Choke Bomb",
+    "Category": "Choke Bomb",
+    "Cost": 25
+  },
+  {
+    "ToolName": "Concertina Trip Mine",
+    "Category": "Tactical Gadgets",
+    "Cost": 90
+  },
+  {
+    "ToolName": "Decoy Fuses",
+    "Category": "Deception",
+    "Cost": 30
+  },
+  {
+    "ToolName": "Decoys",
+    "Category": "Deception",
+    "Cost": 6
+  },
+  {
+    "ToolName": "Dusters",
+    "Category": "Dusters",
+    "Cost": 30
+  },
+  {
+    "ToolName": "Derringer Pennyshot",
+    "Category": "Quad Derringer",
+    "Cost": 63
+  },
+  {
+    "ToolName": "Electric Lamp",
+    "Category": "Light",
+    "Cost": 5
+  },
+  {
+    "ToolName": "First Aid Kit",
+    "Category": "First Aid Kit",
+    "Cost": 30
+  },
+  {
+    "ToolName": "Flare Pistol",
+    "Category": "Light",
+    "Cost": 36
+  },
+  {
+    "ToolName": "Fusees",
+    "Category": "Light",
+    "Cost": 10
+  },
+  {
+    "ToolName": "Heavy Knife",
+    "Category": "Knife",
+    "Cost": 20
+  },
+  {
+    "ToolName": "Knife",
+    "Category": "Knife",
+    "Cost": 40
+  },
+  {
+    "ToolName": "Knuckle Knife",
+    "Category": "Dusters",
+    "Cost": 50
+  },
+  {
+    "ToolName": "Poison Trip Mine",
+    "Category": "Poison",
+    "Cost": 60
+  },
+  {
+    "ToolName": "Quad Derringer",
+    "Category": "Quad Derringer",
+    "Cost": 30
+  },
+  {
+    "ToolName": "Spyglass",
+    "Category": "Spyglass",
+    "Cost": 8
+  },
+  {
+    "ToolName": "Throwing Axes",
+    "Category": "Knife",
+    "Cost": 50
+  },
+  {
+    "ToolName": "Throwing Knives",
+    "Category": "Knife",
+    "Cost": 30
+  },
+  {
+    "ToolName": "Throwing Spear",
+    "Category": "Knife",
+    "Cost": 65
+  }
+]

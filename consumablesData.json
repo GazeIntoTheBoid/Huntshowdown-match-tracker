@@ -1,0 +1,142 @@
+[
+  {
+    "ConsumableName": "Ammo Box",
+    "Category": "Restock",
+    "Cost": 65
+  },
+  {
+    "ConsumableName": "Antidote Shot",
+    "Category": "Poison",
+    "Cost": 55
+  },
+  {
+    "ConsumableName": "Antidote Shot (Weak)",
+    "Category": "Poison",
+    "Cost": 30
+  },
+  {
+    "ConsumableName": "Big Dynamite Bundle",
+    "Category": "Explosives",
+    "Cost": 110
+  },
+  {
+    "ConsumableName": "Chaos Bomb",
+    "Category": "Deception",
+    "Cost": 15
+  },
+  {
+    "ConsumableName": "Choke Beetle",
+    "Category": "Stalker Beetle",
+    "Cost": 22
+  },
+  {
+    "ConsumableName": "Concertina Bomb",
+    "Category": "Tactical Gadgets",
+    "Cost": 48
+  },
+  {
+    "ConsumableName": "Dynamite Bundle",
+    "Category": "Explosives",
+    "Cost": 75
+  },
+  {
+    "ConsumableName": "Dynamite Stick",
+    "Category": "Explosives",
+    "Cost": 18
+  },
+  {
+    "ConsumableName": "Fire Beetle",
+    "Category": "Stalker Beetle",
+    "Cost": 57
+  },
+  {
+    "ConsumableName": "Fire Bomb",
+    "Category": "Fire",
+    "Cost": 30
+  },
+  {
+    "ConsumableName": "Flash Bomb",
+    "Category": "Tactical Gadgets",
+    "Cost": 25
+  },
+  {
+    "ConsumableName": "Frag Bomb",
+    "Category": "Explosives",
+    "Cost": 103
+  },
+  {
+    "ConsumableName": "Hellfire Bomb",
+    "Category": "Fire",
+    "Cost": 70
+  },
+  {
+    "ConsumableName": "Hive Bomb",
+    "Category": "Poison",
+    "Cost": 40
+  },
+  {
+    "ConsumableName": "Liquid Fire Bomb",
+    "Category": "Fire",
+    "Cost": 35
+  },
+  {
+    "ConsumableName": "Medical Pack",
+    "Category": "First Aid Kit",
+    "Cost": 35
+  },
+  {
+    "ConsumableName": "Poison Bomb",
+    "Category": "Poison",
+    "Cost": 25
+  },
+  {
+    "ConsumableName": "Regeneration Shot",
+    "Category": "Healing Shots",
+    "Cost": 105
+  },
+  {
+    "ConsumableName": "Regeneration Shot (Weak)",
+    "Category": "Healing Shots",
+    "Cost": 40
+  },
+  {
+    "ConsumableName": "Stalker Beetle",
+    "Category": "Stalker Beetle",
+    "Cost": 45
+  },
+  {
+    "ConsumableName": "Stamina Shot",
+    "Category": "Healing Shots",
+    "Cost": 100
+  },
+  {
+    "ConsumableName": "Stamina Shot (Weak)",
+    "Category": "Healing Shots",
+    "Cost": 60
+  },
+  {
+    "ConsumableName": "Sticky Bomb",
+    "Category": "Explosives",
+    "Cost": 64
+  },
+  {
+    "ConsumableName": "Tool Box",
+    "Category": "Restock",
+    "Cost": 70
+  },
+  {
+    "ConsumableName": "Vitality Shot",
+    "Category": "Healing Shots",
+    "Cost": 85
+  },
+  {
+    "ConsumableName": "Vitality Shot (Weak)",
+    "Category": "Healing Shots",
+    "Cost": 20
+  },
+  {
+    "ConsumableName": "Waxed Dynamite Stick",
+    "Category": "Explosives",
+    "Cost": 24
+  }
+]
