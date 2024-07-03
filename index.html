@@ -8,32 +8,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link href="./output.css" rel="stylesheet">
 </head>
-<body style = "background-image: url('WebPage-background-4.jpg'); " >
+<body style = "background-image: url('Images/site-images/WebPage-background-4.jpg'); background-attachment: fixed;" >
     <header  class = "bg-black flex flex-row flex-nowrap justify-start items-end border-b-red-900 border-b-4">
-        <img src = "Hunt_Logo_Textured_White_shrunk.jpg" class = "w-0 md:w-auto"/>
-        <h1 class = "text-white m-auto justify-center text-center font-bold text-4xl p-12 font-Crimson-text md:justify-normal md:m-0 "> HUNT - Match Tracker</h1>
+        <img src = ".\Images\site-images\Hunt_Logo_Textured_White_shrunk.jpg" class = "w-0 md:w-auto"/>
+        <h1 class = "text-white m-auto justify-center text-center font-bold text-4xl p-12 font-Crimson-text md:justify-normal md:m-0 ">HUNT SHOWDOWN MATCH TRACKER</h1>
     </header>
     <section>
-        <form class = "m-auto w-11/12 md:w-1/2 md:m-auto " >
+        <form class = "flex flex-col m-auto w-11/12 md:w-1/2 md:m-auto gap-5" id = "loadout" action="submit" >
             <fieldset class = "border-red-900 border-solid border-2 bg-black bg-opacity-60 p-3" >
             <legend class =" p-1 font-Crimson-text text-xl text-white font-extrabold ml-2">Weapon Loadout</legend>
             
-            <div class = "flex flex-row flex-nowrap items-start justify-center gap-10"> <!-- this contains the primary weapon and secondary weapon option and filter boxes-->
-                <div class = "flex flex-col flex-nowrap items-center text-left w-full"><!-- this contains the title + button + inputs-->
+            <div class = "flex flex-row flex-wrap items-start justify-center gap-5 "> <!-- this contains the primary weapon and secondary weapon option and filter boxes-->
+                <div class = "flex flex-col flex-nowrap items-center text-left"><!-- this contains the title + button + inputs-->
                     <label class = "mb-3 font-Crimson-text text-lg text-center text-white font-bold border-b-white border-b-2 border-opacity-50">Primary Weapon</label>
-                    <div class = "flex flex-nowrap flex-row justify-center items-end gap-3"> <!--this is the row of primary weapon slot input types-->
+                    <div class = "flex flex-nowrap flex-row justify-center items-center gap-3"> <!--this is the row of primary weapon slot input types-->
 
                         <div class = "flex flex-col flex-nowrap gap-2">
                             <div class = "flex flex-row justify-between gap-3">
-                                <label name="primarySize" for="smallSizePrimary" class = "text-white font-Crimson-text">Small Slot</label>
-                                <input name="primarySize"id="smallSizePrimary" type = "radio" value="Small" onclick="filterUpdated(name,value)" />
+                                <label for="smallSizePrimary" class = "text-white font-Crimson-text">Small Slot</label>
+                                <input name="primarySize"id="smallSizePrimary" type = "radio" value="Small" onclick="filterUpdated(name,value)" checked/>
                             </div>
                             <div class = "flex flex-row justify-between gap-3">
-                                <label name="primarySize" for="mediumSizePrimary" class = "text-white font-Crimson-text" >Medium Slot</label>
+                                <label for="mediumSizePrimary" class = "text-white font-Crimson-text" >Medium Slot</label>
                                 <input name="primarySize"id="mediumSizePrimary" type = "radio" value="Medium" onclick="filterUpdated(name,value)" />
                             </div>
                             <div class = "flex flex-row justify-between gap-3">
-                                <label name="primarySize" for="largeSizePrimary" class = "text-white font-Crimson-text">Large Slot</label>
+                                <label for="largeSizePrimary" class = "text-white font-Crimson-text">Large Slot</label>
                                 <input name="primarySize"id="largeSizePrimary" type = "radio" value="Large" onclick="filterUpdated(name,value)"/>
                             </div>
    
@@ -43,43 +43,47 @@
                             <div>    
                             </div>
                             <div class = "flex flex-row justify-between gap-3">
-                                <label name="primaryCalibre" for="compactCalibrePrimary" class = "text-white font-Crimson-text">compact ammo</label>
-                                <input name="primaryCalibre"id="compactCalibrePrimary" type = "radio" value="Compact" onclick="filterUpdated(name,value)"/>
+                                <label for="compactCalibrePrimary" class = "text-white font-Crimson-text">Compact ammo</label>
+                                <input name="primaryCalibre"id="compactCalibrePrimary" type = "radio" value="Compact" onclick="filterUpdated(name,value)" checked/>
                             </div>
                             <div class = "flex flex-row justify-between gap-3">
-                                <label name="primaryCalibre" for="mediumCalibrePrimary" class = "text-white font-Crimson-text">Medium ammo</label>
+                                <label for="mediumCalibrePrimary" class = "text-white font-Crimson-text">Medium ammo</label>
                                 <input name="primaryCalibre"id="mediumCalibrePrimary" type = "radio" value="Medium" onclick="filterUpdated(name,value)"/>
                             </div>
                             <div class = "flex flex-row justify-between gap-3">
-                                <label name="primaryCalibre" for="longCalibrePrimary" class = "text-white font-Crimson-text">long ammo</label>
+                                <label for="longCalibrePrimary" class = "text-white font-Crimson-text">Long ammo</label>
                                 <input name="primaryCalibre"id="longCalibrePrimary" type = "radio" value="Long" onclick="filterUpdated(name,value)"/>
+                            </div>
+                            <div class = "flex flex-row justify-between gap-3">
+                                <label for="longCalibrePrimary" class = "text-white font-Crimson-text">Special ammo</label>
+                                <input name="primaryCalibre"id="specialCalibrePrimary" type = "radio" value="Special" onclick="filterUpdated(name,value)"/>
                             </div>
 
                         </div>
                     </div>
                     <div>
-                        <select id = "primary"></select>
+                        <select id = "primary" name = "primaryWeapon"></select><!-- index.js generates all options from json-->
                     </div> 
                 </div>
 
-                <div class = "flex flex-col flex-nowrap items-center text-left w-full"> <!-- this contains the title + button + inputs-->
+                <div class = "flex flex-col flex-nowrap items-center text-left "> <!-- this contains the title + button + inputs-->
                     <label class = "mb-3 font-Crimson-text text-lg text-center text-white font-bold border-b-white border-b-2 border-opacity-50">Secondary Weapon</label>
-                    <div class = "flex flex-nowrap flex-row justify-center items-end gap-3"> <!--this is the row of two secondary weapon input types-->
+                    <div class = "flex flex-nowrap flex-row justify-center items-center gap-3"> <!--this is the row of two secondary weapon input types-->
                         
 
                         <div class = "flex flex-col flex-nowrap gap-2">
                             
                             <div class = "flex flex-row justify-between gap-3">
-                                <label name="secondarySize" for="smallSizeSecondary" class = "text-white font-Crimson-text">Small Slot</label>
-                                <input name="secondarySize" id="smallSizeSecondary" type = "radio" value="Small" onclick="filterUpdated(name,value)"/>
+                                <label for="smallSizeSecondary" class = "text-white font-Crimson-text">Small Slot</label>
+                                <input name="secondarySize" id="smallSizeSecondary" type = "radio" value="Small" onclick="filterUpdated(name,value)" checked/>
                             </div>
 
                             <div class = "flex flex-row justify-between gap-3">
-                                <label name="secondarySize" for="mediumSizeSecondary" class = "text-white font-Crimson-text">Medium Slot</label>
+                                <label for="mediumSizeSecondary" class = "text-white font-Crimson-text">Medium Slot</label>
                                 <input name="secondarySize" id="mediumSizeSecondary" type = "radio" value="Medium" onclick="filterUpdated(name,value)"/>
                             </div>
                             <div class = "flex flex-row justify-between gap-3">
-                                <label name="secondarySize" for="largeSizeSecondary" class = "text-white font-Crimson-text">Large Slot</label>
+                                <label for="largeSizeSecondary" class = "text-white font-Crimson-text">Large Slot</label>
                                 <input name="secondarySize" id="largeSizeSecondary" type = "radio" value="Large" onclick="filterUpdated(name,value)"/>
                             </div>
 
@@ -89,31 +93,35 @@
                             <div>    
                             </div>
                             <div class = "flex flex-row justify-between gap-3">
-                                <label name="secondaryCalibre" for="compactCalibreSecondary" class = "text-white font-Crimson-text">compact ammo</label>
-                                <input name="secondaryCalibre"id="compactCalibreSecondary" type = "radio" value="Compact" onclick="filterUpdated(name,value)"/>
+                                <label for="compactCalibreSecondary" class = "text-white font-Crimson-text">Compact ammo</label>
+                                <input name="secondaryCalibre"id="compactCalibreSecondary" type = "radio" value="Compact" onclick="filterUpdated(name,value) " checked/>
                             </div>
                             <div class = "flex flex-row justify-between gap-3">
-                                <label name="secondaryCalibre" for="mediumCalibreSecondary" class = "text-white font-Crimson-text">Medium ammo</label>
+                                <label for="mediumCalibreSecondary" class = "text-white font-Crimson-text">Medium ammo</label>
                                 <input name="secondaryCalibre"id="mediumCalibreSecondary" type = "radio" value="Medium" onclick="filterUpdated(name,value)"/>
                             </div>
                             <div class = "flex flex-row justify-between gap-3">
-                                <label name="secondaryCalibre" for="longCalibreSecondary" class = "text-white font-Crimson-text">long ammo</label>
+                                <label for="longCalibreSecondary" class = "text-white font-Crimson-text">Long ammo</label>
                                 <input name="secondaryCalibre"id="longCalibreSecondary" type = "radio" value="Long" onclick="filterUpdated(name,value)"/>
+                            </div>
+                            <div class = "flex flex-row justify-between gap-3">
+                                <label for="longCalibreSecondary" class = "text-white font-Crimson-text">Special ammo</label>
+                                <input name="secondaryCalibre"id="specialCalibrePrimary" type = "radio" value="Special" onclick="filterUpdated(name,value)"/>
                             </div>
 
                         </div>
                     </div>
                     <div>
-                        <select id = "secondary"></select>
+                        <select id = "secondary" name = "secondaryWeapons"></select> <!-- index.js generates all options from json-->
                     </div>
                 </div>
             </div>
         </fieldset>
-        <fieldset class = "border-red-900 border-solid border-2 bg-black bg-opacity-60 p-3">
+        <fieldset class = "border-red-900 border-solid border-2 bg-black bg-opacity-60 p-3" >
             <legend class =" p-1 font-Crimson-text text-xl text-white font-extrabold ml-2">Tools</legend>
 
             <p class = "font-Crimson-text text-lg text-white font-bold text-center pb-5 ">Select up to 4 tools that you have equipped</p>
-            <div id = "toolContainer" class =" flex flex-row flex-wrap gap-3">
+            <div id = "toolContainer" class =" flex flex-row flex-wrap gap-3 justify-center">
 
 
             </div>
@@ -124,24 +132,24 @@
             <div class = "flex flex-row flex-wrap justify-center gap-5"><!-- this contains the rows of flex boxes which each hold a label and their select input beneath it-->
                 <div class = "flex flex-col flex-nowrap justify-center items-center ">
                     <label for="consumable1" class = "font-Crimson-text text-white " >Consumable 1</label>
-                    <select name="consumables" id="consumable1"></select>
+                    <select name="consumable1" id="consumable1"></select><!-- index.js generates all options from json-->
                 </div>
                 <div class = "flex flex-col flex-nowrap justify-center items-center">
                     <label for="consumable2" class = "font-Crimson-text text-white " >Consumable 2</label>
-                    <select name="consumables" id="consumable2"></select>
+                    <select name="consumable2" id="consumable2"></select><!-- index.js generates all options from json-->
                 </div>
                 <div class = "flex flex-col flex-nowrap justify-center items-center">
                     <label for="consumable3" class = "font-Crimson-text text-white ">Consumable 3</label>
-                    <select name="consumables" id="consumable3"></select>
+                    <select name="consumable3" id="consumable3"></select><!-- index.js generates all options from json-->
                 </div>
                 <div class = "flex flex-col flex-nowrap justify-center items-center">
                     <label for="consumable4" class = "font-Crimson-text text-white ">Consumable 4</label>
-                    <select name="consumables" id="consumable4"></select>
+                    <select name="consumable4" id="consumable4"></select><!-- index.js generates all options from json-->
                 </div>
 
             </div>
         </fieldset>
-        <button type = "submit" class = "self-center m-auto text-white border-white border-2" tex>Submit loadout</button>
+        <button type = "submit" class = "justify-center m-auto text-white border-red-900 border-2 mb-5"><p class = " text-white font-Crimson-text font-bold p-2">Submit loadout</p></button>
         </form>
         
     </section>
