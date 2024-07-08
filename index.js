@@ -4,7 +4,8 @@
 
 const weaponJSON = "./data-files/scrapedWeaponData.json";
 const toolJSON = "./data-files/toolsData.json";
-const consumablesJSON = "./data-files/consumablesData.json"
+const consumablesJSON = "./data-files/consumablesData.json";
+const premadeLoadoutsJSON = "./data-files/PremadeLoadouts.json";
 let PrimaryWeaponSlotOptions = [];
 let SecondaryWeaponSlotOptions = [];
 let numberOfToolsSelected=0
@@ -19,14 +20,13 @@ let equipmentData = {
     tools: null,
     consumables: null,
 };
+premadeList = []
     
 window.addEventListener("load",function(){
     ///this calls the main scriptfunction once the html contained in the .html has fully loaded.
     organiseDataAndBuilding()
     weaponSlotsSetupRoutine()
-    filterWeapons(PrimaryWeaponSlotOptions,"primary")
-    filterWeapons(SecondaryWeaponSlotOptions,"secondary")
-    ///need to encapsulate event listener code not in functions and call it here
+    premadeListSetupRoutine()
 })
 
 
@@ -71,6 +71,15 @@ async function organiseDataAndBuilding(){
     }catch  (error){
         throw new Error(error.message)
     }
+    try{
+        premadeList= await readJsonfiles(premadeLoadoutsJSON)
+        if (premadeList){
+            console.log("premade list read", premadeList)
+            populatePremadeList()
+        }
+    }catch  (error){
+        throw new Error(error.message)
+    }
 }
 
 async function makeToolCheckBoxes(){ // loops through tool
@@ -105,6 +114,89 @@ async function makeToolCheckBoxes(){ // loops through tool
         }  
         setupCheckBoxes()
 
+}
+
+async function populatePremadeList(){ 
+      //we have readall the premades in previously into premadeList
+    //we then create an element for each of our menu options with a <p> tag
+    //we then attach the event listener for click that fills the form
+    // we then append this to the id = premadeButton element 
+
+    /// the event listener function that fills the form is quite large
+    // essentially just updates the values but also notably has to apply the filters to the weapon slots before updating the select value
+  
+    let menuButton = document.getElementById("premadeMenu")
+    for(i=0;i<premadeList.length;i++){
+        let newPremade = document.createElement("p")
+        newPremade.innerHTML = `${(premadeList[i]["premadeName"])}`
+        newPremade.className = " text-white text-3xl hidden m-2"
+        newPremade.id = premadeList[i]["premadeName"]
+        console.log(premadeList[i]["premadeName"] , " = premadeName")
+        newPremade.addEventListener("click",function(event){
+            //we match the id to the name in the premadelist
+            for(j=0;j<premadeList.length;j++){
+                console.log("you selected a loadtout, premade name = ", premadeList[j]["premadeName"], "this name = ", this.id)
+                if(premadeList[j]["premadeName"]==this.id){ // now for each parameter in the premade loadout we update the settings of the form
+                    document.getElementById("consumable1").value = premadeList[j]["consumable1"];
+                    document.getElementById("consumable2").value = premadeList[j]["consumable2"];
+                    document.getElementById("consumable3").value = premadeList[j]["consumable3"];
+                    document.getElementById("consumable4").value = premadeList[j]["consumable4"];
+                   // document.getElementById("primaryCalibre").value = premadeList[i]["primaryCalibre"]
+                   // document.getElementById("primarySize").value = premadeList[i]["primarySize"]
+                   // document.getElementById("secondaryCalibre").value = premadeList[i]["secondaryCalibre"]
+                    //document.getElementById("secondarySize").value = premadeList[i]["secondarySize"]
+                    filterSettings.primaryCalibre = premadeList[j]["primaryCalibre"];
+                    filterSettings.secondaryCalibre = premadeList[j]["secondaryCalibre"];
+                    filterSettings.primarySize = premadeList[j]["primarySize"];  
+                    filterSettings.secondarySize = premadeList[j]["secondarySize"];
+                    
+
+                    filterWeapons(PrimaryWeaponSlotOptions,"primary");
+                    filterWeapons(SecondaryWeaponSlotOptions,"secondary")
+                    ///^^we need to apply the filter values before picking the actual option vlaue in our premade list
+                    console.log("premade list primary = ",premadeList[j]["primary"])
+                    document.getElementById("primary").value = premadeList[j]["primary"];
+                    document.getElementById("secondary").value = premadeList[j]["secondary"];
+                     // logically this should go after updating the radio buttons below... it seems more appropriate
+                     // but it breaks if i do that
+                     // premadelist[j] becomes undefined. i dont know why... it shouldnt. but this works in this order.
+
+                    ///creating a paired list of radio buttons - will apply desired settering with respect to filtersettings object in a for loop
+                    let radioList = []
+                    let settingListValues = [filterSettings.primarySize,filterSettings.secondarySize,filterSettings.primaryCalibre,filterSettings.secondaryCalibre]
+                    radioList.push(document.getElementsByName("primarySize"))
+                    radioList.push(document.getElementsByName("secondarySize"))
+                    radioList.push(document.getElementsByName("primaryCalibre"))
+                    radioList.push(document.getElementsByName("secondaryCalibre"))
+                    for(k=0;k<radioList.length;k++){ // for each of our radio lists
+                        for(l=0;l<radioList[k].length;l++){ // check each radio button in the radio list
+                            if(radioList[k][l].value == settingListValues[k]){
+                                // this checks if a radio buttons value matches the corresponding filter settings value
+                                radioList[k][l].checked = true // and we check it if it does.
+                                if (radioList[k][l].id == "largeSizePrimary"){ // check if its a large size primary and if so disable largesizesecondary radio
+                                    document.getElementById("largeSizeSecondary").disabled = true}
+                                else if (radioList[k][l].id == "mediumSizePrimary" || radioList[k][l].id == "smallSizePrimary"){ // check if its a large size primary and if so disable largesizesecondary radio
+                                        document.getElementById("largeSizeSecondary").disabled = false
+                                }
+                                if (radioList[k][l].id == "largeSizeSecondary"){ // check if its a large size primary and if so disable largesizesecondary radio
+                                    document.getElementById("largeSizePrimary").disabled = true}
+                                else if (radioList[k][l].id == "mediumSizeSecondary" || radioList[k][l].id == "smallSizeSecondary"){ // check if its a large size primary and if so disable largesizesecondary radio
+                                        document.getElementById("largeSizePrimary").disabled = false
+                                } 
+                            }
+                        }
+                    }
+                    /// need to check the right radio buttons and disable one of the Large if its opponent is selected
+                    /// need to match the radio buttons by value
+                    //checking it will automatically uncheck its sibling
+
+                }
+
+            }
+
+        })
+        menuButton.appendChild(newPremade)
+    }
 }
 /////////////////////////this section is the weapon slot section that dynamically filters///////////////////////////////////
 function filterUpdated(filterName,filterValue){ 
@@ -166,15 +258,57 @@ function populateConsumableLists(){
 
 function weaponSlotsSetupRoutine(){
         /// this sets up our event listeners handling elements getting disabled and form submission
+        // THIS WILL NEED TO BE ENTIRELY REWRITEN TO MANUALLY HANDLE FORM DATA BECAUSE OF VARIABLE # OF CHECKBOXES AND NO UNIQUE KEYS.
+        // get select box values for weapons.
+        //for loop to find which check boxes are checked and assign to a 4 length list. 4 if checkes elements truthy the write as tool1 tool2... etc
+        //then menually get consumable select values
     document.getElementById("loadout").addEventListener("submit",function(event){
-        event.preventDefault(); /// so first thing we prevent the default submit behaviour
+        event.preventDefault(); /// so first thing we prevent the default submit behaviour that would fire off a html post
+        let manualData = {}
+        manualData.primary = document.getElementById("primary").value
+        manualData.secondary = document.getElementById("secondary").value
+        let consumablesList = []
+        let consumableKeys = ["consumable1","consumable2","consumable3","consumable4"]
+        // we create a list of descending elements and sort it so that empty options are at the bottom. might make analysis easier down the line
+        consumablesList.push(document.getElementById("consumable1").value)
+        consumablesList.push(document.getElementById("consumable2").value)
+        consumablesList.push(document.getElementById("consumable3").value)
+        consumablesList.push(document.getElementById("consumable4").value)
+        consumablesList.sort()
+        consumablesList.reverse()
+        for(i=0;i<4;i++){
+            manualData[consumableKeys[i]] = consumablesList[i]
+        }
+
+
+        checkedToolBoxes = []   
+        toolKeys = ["tool1","tool2","tool3","tool4"]
+        const checkbuttonsfield = document.getElementById("toolContainer")
+        const toolCheckBoxes = checkbuttonsfield.querySelectorAll("input")
+        for(i=0;i<toolCheckBoxes.length;i++){ // for each checkbox, check if it is checked and add it to a list
+            if (toolCheckBoxes[i].checked){
+
+                checkedToolBoxes.push(toolCheckBoxes[i].value)
+                
+            }
+        }
+        for(i=0;i<4;i++){ // this adds tool keys and entries to the data js object for the number that have been checked
+            if (checkedToolBoxes[i]){
+            manualData[toolKeys[i]] = checkedToolBoxes[i]
+        }else{manualData[toolKeys[i]] = ""} // we fill empty tool slots with "" so its easier to update the DB
+
+        }
+        console.log(manualData, " ==== manual data")
+
         
-        const form = event.target; // so define what the form activated was... could also do it bit get elementbyid
-        const formData = new FormData(form); // we create form data from the form
+       // const form = event.target; // so define what the form activated was... could also do it bit get elementbyid
+        //const formData = new FormData(form); // we create form data from the form
         // formdata is a js object using the input names as keys.
-        const data = Object.fromEntries(formData.entries());
+        //console.log(formData)
+        //const data = Object.fromEntries(formData.entries());
         ////this has converted the formdata object to a js object suitable for sending via fetch 
-        console.log(data)
+        //console.log(data)
+
         
     })  
     let primarySizeList = document.getElementsByName("primarySize")
@@ -201,6 +335,39 @@ function weaponSlotsSetupRoutine(){
     }
 
 }
+function premadeListSetupRoutine(){
+    // firstly this sets up the menu as something we mouse over to drop down.
+    // it does this by adding event listeners for mouse over and mouse out
+    // it then adjusts the display to none (hidden in tailwind) for all the children of the menubutton  
+
+    let menuButton = document.getElementById("premadeMenu")
+    menuItems = menuButton.children
+    menuButton.addEventListener("mouseover",function(event){
+
+
+
+
+        //for child of the menubutton set visiblity... normal??
+        for(i=0;i<menuItems.length;i++){
+            if (menuItems[i].id!="premadeButton"){
+            menuItems[i].classList.remove("hidden")
+            console.log(menuItems[i], " = menuitem as mouseover")
+            }
+        }})
+        menuButton.addEventListener("mouseout",function(event){
+            //for child of the menubutton set visiblity... normal??
+            for(i=0;i<menuItems.length;i++){
+                if (menuItems[i].id!="premadeButton"){
+                menuItems[i].classList.add("hidden")
+                console.log(menuItems[i], " = menuitem as mouseover")
+                }
+            }})
+    
+
+    
+}
+
+
 async function setupCheckBoxes(){ /// async cos it depends on the check box to be generated.
     const checkbuttonsfield = document.getElementById("toolContainer")
     console.log(checkbuttonsfield)
@@ -226,11 +393,7 @@ async function setupCheckBoxes(){ /// async cos it depends on the check box to b
         }else{
             box.checked = false;
             numberOfToolsSelected--;
-        }
-   
-        
-        
-    })
-    
+        }        
+    })    
     }
 }

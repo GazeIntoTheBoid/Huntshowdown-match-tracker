@@ -17,4 +17,20 @@ html = page.read().decode("utf-8")
 soup = BeautifulSoup(html, "html.parser")
 table = soup.find("table",class_ = targetTableClass)
 tableRows = soup.find_all("tr")
-print(tableRows[1])
+weapons = []
+#print(tableRows[0]," new row ",tableRows[1]," new row ",tableRows[2]," new row ",tableRows[3]," new row ",)
+del tableRows[0]
+for tableRow in tableRows:
+    
+    image = tableRow.find("img")
+    if image:
+        print(image)
+        weaponLinkElement = tableRow.find("a")
+        name = weaponLinkElement.text
+        weaponPageURL = weaponLinkElement["href"]
+        weapon = { "name" : name,
+                "image" : image,
+                "page" : weaponPageURL}
+        weapons.append(weapon)
+    print(weapons[0])
+    

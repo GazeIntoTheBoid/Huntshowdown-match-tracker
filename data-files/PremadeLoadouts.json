@@ -1,0 +1,37 @@
+
+[
+    {
+        "premadeName" : "Bombs",
+        "Blank Fire Decoys": "Blank Fire Decoys",
+        "Choke Bomb": "Choke Bomb",
+        "Concertina Trip Mine": "Concertina Trip Mine",
+        "Decoy Fuses": "Decoy Fuses",
+        "consumable1": "Frag Bomb",
+        "consumable2": "Frag Bomb",
+        "consumable3": "Flash Bomb",
+        "consumable4": "Frag Bomb",
+        "primaryCalibre": "Long",
+        "primarySize": "Small",
+        "primary": "Caldwell Conversion Uppercut",
+        "secondaryCalibre": "Long",
+        "secondarySize": "Large",
+        "secondary": "Berthier Mle 1892"
+    },
+    {
+    "premadeName" : "Primitive",
+    "Blank Fire Decoys": "Blank Fire Decoys",
+    "Choke Bomb": "Choke Bomb",
+    "Concertina Trip Mine": "Concertina Trip Mine",
+    "Decoy Fuses": "Decoy Fuses",
+    "consumable1": "Hive Bomb",
+    "consumable2": "",
+    "consumable3": "",
+    "consumable4": "",
+    "primaryCalibre": "Special",
+    "primarySize": "Medium",
+    "primary": "Hunting Bow",
+    "secondaryCalibre": "Long",
+    "secondarySize": "Large",
+    "secondary": "Berthier Mle 1892"
+    }
+]
