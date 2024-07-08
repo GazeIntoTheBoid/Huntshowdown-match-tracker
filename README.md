@@ -1,4 +1,4 @@
-This a match tracker for the videogame hunt showdown by crytek, the assets used are part of the hunt showdown fan site kit and information / images that have been scraped from the hunt showdown wiki.
+This project is a match tracker for the videogame hunt showdown by crytek, the assets used are part of the hunt showdown fan site kit and information / images that have been scraped from the hunt showdown wiki.
 https://huntshowdown.fandom.com/wiki/Hunt:_Showdown_Wiki
 
 This project has been created for educational purposes and is non profit.
