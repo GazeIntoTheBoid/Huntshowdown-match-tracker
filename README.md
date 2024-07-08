@@ -1,5 +1,9 @@
-This a matchtracker for the videogame hunt show down by crytek, the assets used are part of the hunt showdown fan site kit and information / images that have been scraped from the huntshowdown wiki.
-this project has been created for educational purposes and is non profit.
+This a match tracker for the videogame hunt showdown by crytek, the assets used are part of the hunt showdown fan site kit and information / images that have been scraped from the hunt showdown wiki.
+https://huntshowdown.fandom.com/wiki/Hunt:_Showdown_Wiki
+
+This project has been created for educational purposes and is non profit.
+
+The purpose of this app is primarily to record the equipment the user begins a game with later development additions will feature a graphical representation of this equipment as it is selected and the ability to enter game results on a subsequent form. This data will then be stored in a relational database for cost benefit analysis.
 
 The form loads database information stored locally in json files on a http-server via the fetch api, this information is used to:
 - generate tool checkboxes
