@@ -11,11 +11,22 @@ The form loads database information stored locally in json files on a http-serve
 - populate the consumable select boxes with options
 - populate a drop down menu with premade form options
 
-the form features filters that dynamically update the options available in the weapon box.
-the  radio button filters limit what weapons can be selected by disabling the radio buttons - two large size weapons cannot be selected at the same time.
+The form features radio button filters that dynamically update the options available in the weapon select boxes to weapons that meet the criteria.
 
-the form also features a drop down menu with options the fill out the form and update the controls with a single click. The options are generated from a seperate json input.
+The  radio button filters also limit what weapons can be selected by disabling some filter options when appropriate - two large size weapons cannot be selected at the same time.
 
-form submission is handled manually to format the data for later addition to the database via the fetch api.
+The form also features a drop down menu with options the fill out the form and update the controls with a single click. The options are generated from a seperate json input.
 
-the support scripts used for web scraping the data are written in python and not currently functional, they are being updated. - the JSON data files have been scraped from a new defunct project.
+Form submission is handled manually to format the data for later addition to the database via the fetch api.
+
+The support scripts used for web scraping the data are written in python and not currently functional, they are being updated. - the JSON data files have been scraped from a new defunct project.
+#############
+TODO:
+- premade loadouts need to input tool values to checkboxes.
+- make more and varied default premade loadouts to better test form functionality under differnt circumstances
+- premade loadout names currently must be all one word for some reason???
+- Complete rework of webscraping tools for weapons and weapon graphics as a priority
+- create a second form for entering match statistics
+- server side everything
+- user login???
+###########
