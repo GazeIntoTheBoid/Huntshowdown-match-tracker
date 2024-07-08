@@ -13,3 +13,5 @@ the  radio button filters limit what weapons can be selected by disabling the ra
 the form also features a drop down menu with options the fill out the form and update the controls with a single click. The options are generated from a seperate json input.
 
 form submission is handled manually to format the data for later addition to the database via the fetch api.
+
+the support scripts used for web scraping the data are written in python and not currently functional, they are being updated. - the JSON data files have been scraped from a new defunct project.
