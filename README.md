@@ -1,4 +1,4 @@
-This a match tracker for the videogame hunt show down by crytek, the assets used are part of the hunt showdown fan site kit and information / images that have been scraped from the huntshowdown wiki.
+This a matchtracker for the videogame hunt show down by crytek, the assets used are part of the hunt showdown fan site kit and information / images that have been scraped from the huntshowdown wiki.
 this project has been created for educational purposes and is non profit.
 
 The form loads database information stored locally in json files on a http-server via the fetch api, this information is used to:
